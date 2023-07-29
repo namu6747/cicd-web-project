@@ -29,4 +29,14 @@ public class SpringConfig implements WebMvcConfigurer {
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
+
+    @Bean
+    public Filter characterEncodingFilter() {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        filter.setForceEncoding(true);
+        return filter;
+    }
+
+    
 }
