@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cicd-deployment
+  labels:
+    app: cicd-project-ansible
+
+spec:
+  selector:
+    app: cicd-project-ansible
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 32000

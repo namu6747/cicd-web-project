@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-deployment
+spec:
+  selector:
+    matchLabels:
+      app: cicd-project-ansible
+  replicas: 5
+
+  template:
+    metadata:
+      labels:
+        app: cicd-project-ansible
+    spec:
+      containers:
+      - name: cicd-project-ansible
+        image: namu6747/cicd-project-ansible
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
