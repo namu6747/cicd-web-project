@@ -1,0 +1,16 @@
+- hosts: all
+# become: true
+
+  tasks:
+  - name: create a docker image with deployed war file
+    command: docker build -t namu6747/cicd-project-ansible .
+    args:
+        chdir: /root
+
+  - name: push the image on Docker hub
+    command: docker push namu6747/cicd-project-ansible
+
+  - name: remove the docker image from ansible server
+    command: docker rmi namu6747/cicd-project-ansible
+    ignore_errors: yes
+
