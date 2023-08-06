@@ -1,0 +1,8 @@
+- name: create service for deployment
+  hosts: kubernetes
+  # become: true
+  # user: ubuntu
+
+  tasks:
+  - name: create a service
+    win_shell: kubectl apply -f C:\Users\82105\Desktop\study\workspace\github\cicd-web-project\files\cicd-devops-service.yml
