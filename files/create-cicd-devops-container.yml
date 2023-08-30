@@ -1,0 +1,14 @@
+- hosts: docker
+# become: true
+
+  tasks:
+  - name: stop current running container
+    command: docker stop my_cicd_project
+    ignore_errors: yes
+
+  - name: remove stopped container
+    command: docker rm my_cicd_project
+    ignore_errors: yes
+    
+  - name:
+    command: docker run -d -p 8080:8080 --name my_cicd_project namu6747/cicd-project-final:latest

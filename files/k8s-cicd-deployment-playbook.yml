@@ -5,8 +5,8 @@
 
   tasks:
   - name: delete the previous deployment
-    command: kubectl.exe delete deployment cicd-deployment
+    win_shell: kubectl.exe delete deployment cicd-deployment
     ignore_errors: yes
 
   - name: create a deployment
-    command: kubectl apply -f cicd-devops-deployment.yml
+    win_command: kubectl apply -f cicd-devops-deployment.yml
